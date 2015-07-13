@@ -53,7 +53,7 @@ body {
 	padding-left: 70px;
 }
 
-.buttonsDiv .player1, .player2, .reset {
+.buttonsDiv .player1, .player2, .reset, #turnIndicator {
 	text-transform: uppercase;
 	background: #EE872A;
 	padding: 5px 10px;

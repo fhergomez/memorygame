@@ -8,7 +8,8 @@ $(function (){
 	var images = $('.image');
 	var score = $('.score');
 	var reset = $('#reset');
-	var player = true; 
+	var player = true;
+	var currentPlayer = 'Player 1'; 
 
 	var images_array = [
 		// "./images/beckham.jpg", "./images/beckham.jpg",
@@ -38,6 +39,25 @@ $(function (){
 	}
 	var shuffledArray = shuffle(images_array);
 
+	///////////////SLOAN's FUNCTIONS
+ 
+ 
+ 	var makeTurnIndicator = function(){
+ 		$("<span/>", {
+			id: "turnIndicator"
+		}).appendTo(".buttonsDiv")
+	}
+
+	var whoseTurnIsIt = function(){
+		if(player){
+			currentPlayer='Player 1 turn';
+		} else {
+			currentPlayer='Player 2 turn';
+		}
+		$("#turnIndicator").text(currentPlayer);
+ 	}
+ 	//////////////
+
 	////////////////////////////////////
 
 	$('.playerimg').each(function (index) {	
@@ -49,6 +69,11 @@ $(function (){
 	////////////////////////////////////
 	// EventListener
 	////////////////////////////////////
+
+	// CONSTRUCTS A SPAN TO PUT TURN INTO
+	makeTurnIndicator();
+	$("#turnIndicator").text(currentPlayer);
+ 	/////////////////////////////////////
 
 	
 	var imageClicked = false;
@@ -92,6 +117,7 @@ $(function (){
 			// console.log(imageClicked);
 		}
 		console.log(counter, player);
+		whoseTurnIsIt();
 		
 		
 	});
